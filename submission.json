@@ -1,0 +1,24 @@
+{
+  "name": "multi-provider-oauth",
+  "version": "1.0.0",
+  "description": "Containerized OAuth 2.0 API supporting Google and GitHub sign-in with JWT access tokens and rotating refresh tokens.",
+  "runtime": "Node.js 22",
+  "application": "Express.js",
+  "authentication": "Passport.js",
+  "database": "PostgreSQL with Prisma",
+  "container": {
+    "dockerfile": "Dockerfile",
+    "compose": "docker-compose.yml"
+  },
+  "healthcheck": "/health",
+  "api": [
+    "GET /health",
+    "GET /ready",
+    "GET /auth/providers",
+    "GET /auth/:provider",
+    "GET /auth/:provider/callback",
+    "POST /auth/refresh",
+    "POST /auth/logout",
+    "GET /auth/me"
+  ]
+}
